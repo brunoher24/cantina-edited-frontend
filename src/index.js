@@ -1,13 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import './index.css';
 import App from './App';
+
 import reportWebVitals from './reportWebVitals';
+import RecipeCreate from './pages/RecipeCreate';
+import RecipeUpdate from './pages/RecipeUpdate';
+import RecipeDetails from './pages/RecipeDetails';
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="nouvelle-recette" element={<RecipeCreate />} />
+      <Route path="recette-details/:id" element={<RecipeDetails />} />
+      <Route path="modifier-ma-recette/:id" element={<RecipeUpdate />} />
+    </Routes>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
